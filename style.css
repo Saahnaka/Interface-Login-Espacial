@@ -1,0 +1,275 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #051937, #00011b);
+  position: relative;
+}
+
+/* --- ESPAÇO E ESTRELAS --- */
+.animacao {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.animacao::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(1px 1px at 10% 10%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 50% 50%, #fff, transparent),
+    radial-gradient(2px 2px at 80% 80%, #fff, transparent);
+}
+
+.estrela-twinkle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(1.5px 1.5px at 20% 70%, #fff, transparent);
+  animation: twinkle 3s infinite alternate;
+}
+
+/* --- PLANETAS--- */
+.earth {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  background: radial-gradient(circle at 30% 30%, #2b82c9, #0d2a4d 100%);
+  border-radius: 50%;
+  top: 10%;
+  left: 15%;
+  box-shadow:
+    inset -15px -15px 30px #000,
+    0 0 30px rgba(43, 130, 201, 0.4);
+  animation: moveRapido 10s ease-in-out infinite alternate;
+}
+
+.moon {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle at 30% 30%, #d1d1d1, #404040);
+  border-radius: 50%;
+  top: 20%;
+  left: 5%;
+  box-shadow: inset -5px -5px 10px #000;
+  animation: moveRapido 7s ease-in-out infinite alternate-reverse;
+}
+
+.jupiter {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle at 40% 40%, #d39c7e, #4a2d2a 100%);
+  border-radius: 50%;
+  top: 12%;
+  right: 12%;
+  box-shadow:
+    inset -25px -25px 50px #000,
+    0 0 20px rgba(148, 82, 74, 0.2);
+  animation: moveJupiterTurbo 8s ease-in-out infinite alternate;
+}
+
+.mars {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(circle at 30% 30%, #ff4500, #8b0000);
+  border-radius: 50%;
+  bottom: 15%;
+  right: 15%;
+  box-shadow: inset -10px -10px 20px #000;
+  animation: moveRapido 9s ease-in-out infinite alternate-reverse;
+}
+
+/* --- OBJETOS --- */
+.asteroide {
+  position: absolute;
+  width: 30px;
+  height: 25px;
+  background: #4b3d33;
+  clip-path: polygon(20% 0%, 80% 10%, 100% 40%, 70% 90%, 20% 100%, 0% 60%);
+  top: -100px;
+  left: -100px;
+  animation: pedraRapida 5s linear infinite;
+}
+
+.cometa {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 20px #fff;
+  top: 35%;
+  left: -250px;
+  animation: rastroCometa 8s linear infinite;
+}
+
+.cometa::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 150px;
+  height: 3px;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.4), transparent);
+  transform: translateY(-50%);
+  filter: blur(2px);
+}
+
+/* --- FORMULÁRIO --- */
+.formulario {
+  position: relative;
+  z-index: 10;
+  width: 400px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  padding: 40px;
+  border-radius: 18px;
+  color: #fff;
+}
+
+.formulario h1 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.caixa-formulario {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.caixa-formulario input {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0 20px;
+  color: #fff;
+  outline: none;
+}
+
+.caixa-formulario i {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  font-size: 20px;
+}
+
+.caixa-lembrar-esqueci {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+/* --- LINKS  --- */
+.caixa-lembrar-esqueci a,
+.link-registro a {
+  text-decoration: none;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.caixa-lembrar-esqueci a:hover,
+.link-registro a:hover {
+  text-decoration: underline;
+}
+
+button {
+  width: 100%;
+  height: 48px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #061d68;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #fff;
+  transform: translateY(-3px);
+}
+
+.link-registro {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.erro-texto {
+  color: #ff4d4d;
+  font-size: 13px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* --- ANIMAÇÕES --- */
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+@keyframes moveRapido {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(60px, 40px);
+  }
+}
+@keyframes moveJupiterTurbo {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-80px, 60px);
+  }
+}
+@keyframes pedraRapida {
+  0% {
+    transform: translate(-100px, -100px) rotate(0deg);
+  }
+  100% {
+    transform: translate(120vw, 100vh) rotate(720deg);
+  }
+}
+@keyframes rastroCometa {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(120vw);
+    opacity: 0;
+  }
+}
